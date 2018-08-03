@@ -30,6 +30,7 @@ class Event < ApplicationRecord
   validates :place, presence: true, length: { maximum: 100 }
   validates :content, presence: true, length: { maximum: 2000 }
   validate :start_time_should_be_before_end_time
+  mount_uploader :image, EventImageUploader
 
   enum status: { close: 0, open: 10 }
 
